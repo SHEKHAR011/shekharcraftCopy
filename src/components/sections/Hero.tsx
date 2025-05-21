@@ -33,12 +33,12 @@ const Hero: React.FC = () => {
     <section
       id="home"
       className={`relative min-h-screen flex items-center justify-center overflow-hidden ${
-        isDarkMode ? 'bg-dark' : 'bg-gradient-to-br from-light to-white'
+        isDarkMode ? 'bg-dark' : 'bg-gradient-to-br from-light to-secondary-100'
       } transition-colors duration-500`}
     >
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute w-[300px] h-[300px] rounded-full bg-primary/20 blur-3xl top-10 left-10 z-0"
+          className="absolute w-[300px] h-[300px] rounded-full bg-secondary/20 blur-3xl top-10 left-10 z-0"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ 
             scale: 1.2, 
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
         />
 
         <motion.div
-          className="absolute top-20 right-20 text-primary/30 z-10"
+          className="absolute top-20 right-20 text-secondary/30 z-10"
           initial={{ y: 0 }}
           animate={{
             y: [0, -15, 0],
@@ -107,10 +107,10 @@ const Hero: React.FC = () => {
         >
           <motion.div variants={item} className="mb-6">
             <motion.span 
-              className="text-sm md:text-base px-4 py-2 rounded-full bg-primary/10 text-primary inline-flex items-center gap-2"
+              className="text-sm md:text-base px-4 py-2 rounded-full bg-secondary/10 text-secondary-600 inline-flex items-center gap-2"
               whileHover={{ 
                 scale: 1.04,
-                boxShadow: isDarkMode ? '0 0 12px rgba(34, 197, 94, 0.3)' : '0 0 12px rgba(34, 197, 94, 0.2)'
+                boxShadow: isDarkMode ? '0 0 12px rgba(74, 222, 128, 0.3)' : '0 0 12px rgba(74, 222, 128, 0.2)'
               }}
               transition={{ 
                 type: 'spring', 
@@ -163,9 +163,9 @@ const Hero: React.FC = () => {
               href="#contact"
               className={`px-8 py-3 rounded-full font-medium transition-all duration-300 text-center min-w-[160px] border ${
                 isDarkMode 
-                  ? 'bg-dark hover:bg-gray-800 text-light border-gray-800' 
-                  : 'bg-white hover:bg-gray-50 text-gray-800 border-gray-200'
-              } shadow-lg hover:shadow-xl hover:shadow-gray-500/10`}
+                  ? 'bg-dark hover:bg-primary-900 text-light border-primary-800' 
+                  : 'bg-white hover:bg-primary-50 text-primary-700 border-primary-200'
+              } shadow-lg hover:shadow-xl hover:shadow-primary/10`}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.97 }}
             >

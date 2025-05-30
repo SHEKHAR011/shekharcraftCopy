@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type ThemeContextType = {
@@ -10,15 +12,14 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Default to dark mode (true) unless user explicitly chose light mode
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    // If no preference saved, default to dark (true)
-    return savedTheme ? savedTheme === 'dark' : true;
-  });
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
-    // Apply the theme class to document element
+    const savedTheme = localStorage.getItem('theme');
+    setIsDarkMode(savedTheme ? savedTheme === 'dark' : true);
+  }, []);
+
+  useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
@@ -27,7 +28,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       localStorage.setItem('theme', 'light');
     }
     
-    // Force disable any system preference detection
     document.documentElement.style.colorScheme = isDarkMode ? 'dark' : 'light';
   }, [isDarkMode]);
 

@@ -2,16 +2,18 @@ import ScreenShot1 from '../assets/ScreenShot1.png';
 import ScreenShot3 from '../assets/ScreenShot3.png';
 import ScreenShot4 from '../assets/ScreenShot4.png';
 import image from '../assets/image.png';
+
+import { StaticImageData } from "next/image";
+
 export interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
-  category: 'AI' | 'mobile' |'CLI';
+  image: string | StaticImageData; // <-- fix here
+  category: 'AI' | 'mobile' | 'CLI';
   technologies: string[];
   github?: string;
   liveUrl?: string;
-
 }
 
 export const projectData: Project[] = 
